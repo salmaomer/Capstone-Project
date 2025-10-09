@@ -9,3 +9,4 @@ urlpatterns = [
     path('book/<int:pk>/edit/', views.book_edit, name='book_edit'),
     path('book/<int:pk>/delete/', views.book_delete, name='book_delete'),
 ]
+
