@@ -1,14 +1,27 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Sign Up - BookVault{% endblock %}
+{% block title %}Register - BookVault{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock %}
 
 {% block content %}
-<h2>Register</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign Up</button>
-</form>
-<p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+<div class="register-page">
+    <div class="register-card">
+        <h2>📘 Create Your Account</h2>
+        <p class="subtitle">Join BookVault and start building your library</p>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Sign Up</button>
+        </form>
+
+        <p class="login-link">Already have an account?
+            <a href="{% url 'login' %}">Login here</a>
+        </p>
+    </div>
+</div>
 {% endblock %}

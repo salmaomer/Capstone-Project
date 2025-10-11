@@ -1,29 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delete Book - BookVault</title>
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
-</head>
-<body>
-    <header>
-        <h1>📚 BookVault</h1>
-        <nav>
-            <a href="{% url 'home' %}">Home</a>
-            <a href="{% url 'my_collection' %}">My Collection</a>
-            <a href="{% url 'logout' %}">Logout</a>
-        </nav>
-    </header>
+{% extends 'base.html' %}
+{% load static %}
 
-    <main>
-        <h2>Delete Book</h2>
-        <p>Are you sure you want to delete "<strong>{{ book.title }}</strong>"?</p>
-        <form method="post">
-            {% csrf_token %}
-            <button type="submit">Yes, Delete</button>
-            <a href="{% url 'my_collection' %}">Cancel</a>
-        </form>
-    </main>
-</body>
-</html>
+{% block title %}Delete Book - BookVault{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/book_delete.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="delete-container">
+    <h2>Delete Book</h2>
+    <p>Are you sure you want to delete "<strong>{{ book.title }}</strong>"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Yes, Delete</button>
+        <a href="{% url 'my_collection' %}">Cancel</a>
+    </form>
+</div>
+{% endblock %}

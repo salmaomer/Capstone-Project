@@ -1,0 +1,119 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base styling */
+body {
+    font-family: "Poppins", "Segoe UI", sans-serif;
+    background-color: #F0F0F0;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+header {
+    background: linear-gradient(90deg, #73C174, #B8E986);
+    color: #fff;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 1.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #DCC6A0;
+    color: #333;
+}
+
+/* Main content area */
+main {
+    flex: 1;
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(90deg, #73C174, #B8E986);
+    color: #fff;
+    padding: 40px 60px 20px;
+    margin-top: auto; /* Keeps footer at the bottom */
+    text-align: left;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-size: 15px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.footer-about {
+    flex: 1;
+    min-width: 300px;
+}
+
+.footer-contact {
+    flex: 1;
+    min-width: 300px;
+    text-align: right;
+}
+
+.footer-about h3,
+.footer-contact h4 {
+    color: #B8E986;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.footer-about p,
+.footer-contact p {
+    color: #fff;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.footer-bottom {
+    border-top: 1px solid #B8E986;
+    padding-top: 12px;
+    font-size: 0.85rem;
+    color: #fff;
+    text-align: center;
+}

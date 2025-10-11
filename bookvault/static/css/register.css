@@ -1,0 +1,106 @@
+/* Page layout */
+main {
+    background: linear-gradient(135deg, #B8E986, #73C174);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    min-height: 80vh;
+}
+
+/* Login card */
+form {
+    background-color: #fff;
+    width: 100%;
+    max-width: 420px;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    padding: 35px 40px;
+    text-align: center;
+    animation: fadeIn 0.7s ease-in-out;
+}
+
+/* Title */
+h2 {
+    color: #4a664a;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.subtitle {
+    text-align: center;
+    margin: 13px 50px;
+}
+
+/* Input fields */
+form input {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 15px;
+    border: 1px solid #DCC6A0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+form input:focus {
+    border-color: #73C174;
+    box-shadow: 0 0 6px rgba(115, 193, 116, 0.4);
+    outline: none;
+}
+
+/* Submit button */
+form button {
+    width: 100%;
+    background-color: #73C174;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+form button:hover {
+    background-color: #5ea95f;
+    transform: translateY(-2px);
+}
+
+/* Message errors */
+p[style] {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+/* Signup link */
+p{
+    text-align: center;
+    margin-top: 15px;
+}
+
+p a {
+    color: #4a664a;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+p a:hover {
+    color: #73C174;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

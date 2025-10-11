@@ -1,28 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if form.instance.pk %}Edit Book{% else %}Add Book{% endif %} - BookVault</title>
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
-</head>
-<body>
-    <header>
-        <h1>📚 BookVault</h1>
-        <nav>
-            <a href="{% url 'home' %}">Home</a>
-            <a href="{% url 'my_collection' %}">My Collection</a>
-            <a href="{% url 'logout' %}">Logout</a>
-        </nav>
-    </header>
+{% extends 'base.html' %}
+{% load static %}
 
-    <main>
-        <h2>{% if form.instance.pk %}Edit Book{% else %}Add Book{% endif %}</h2>
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">{% if form.instance.pk %}Update{% else %}Add{% endif %}</button>
-        </form>
-    </main>
-</body>
-</html>
+{% block title %}{% if form.instance.pk %}Edit Book{% else %}Add Book{% endif %} - BookVault{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/book_form.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h2>{% if form.instance.pk %}Edit Book{% else %}Add Book{% endif %}</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">{% if form.instance.pk %}Update{% else %}Add{% endif %}</button>
+    </form>
+</div>
+{% endblock %}
