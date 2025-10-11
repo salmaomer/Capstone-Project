@@ -68,7 +68,7 @@ def register_view(request):
             return redirect('home')
     else:
         form = RegisterForm()
-    return render(request, 'register.html', {'form': form})
+    return render(request, 'registration/register.html', {'form': form})
 
 # ==== Login ====
 def login_view(request):
@@ -82,7 +82,7 @@ def login_view(request):
             messages.error(request, 'Invalid username or password')
     else:
         form = AuthenticationForm()
-    return render(request, 'login.html', {'form': form})
+    return render(request, 'registration/login.html', {'form': form})
 
 # ==== Logout ====
 def logout_view(request):
