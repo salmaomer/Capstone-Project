@@ -14,6 +14,7 @@
     {% else %}
         <div class="no-image">No Image</div>
     {% endif %}
+
     <h2>{{ book.title }}</h2>
     <p><strong>Author:</strong> {{ book.author }}</p>
     <p><strong>Price:</strong> ${{ book.price }}</p>
@@ -27,4 +28,37 @@
         </div>
     {% endif %}
 </div>
+
+<hr>
+
+<h3>Comments 💬</h3>
+{% for comment in comments %}
+  <div class="comment">
+    <strong>{{ comment.user.username }}</strong> said:
+    <p>{{ comment.content }}</p>
+    <small>{{ comment.created_at|date:"Y-m-d H:i" }}</small>
+
+    {% if comment.user == user %}
+      <div class="comment-actions">
+        <a href="{% url 'comment_edit' comment.pk %}">Edit</a> |
+        <a href="{% url 'comment_delete' comment.pk %}">Delete</a>
+      </div>
+    {% endif %}
+  </div>
+{% empty %}
+  <p>No comments yet.</p>
+{% endfor %}
+
+<hr>
+
+{% if user.is_authenticated %}
+  <h4>Add a Comment:</h4>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Post Comment</button>
+  </form>
+{% else %}
+  <p>Please <a href="{% url 'login' %}">log in</a> to post a comment.</p>
+{% endif %}
 {% endblock %}
