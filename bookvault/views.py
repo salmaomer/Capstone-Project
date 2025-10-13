@@ -3,8 +3,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
-from .models import Book
-from .forms import BookForm, RegisterForm
+from .models import Book, Comment
+from .forms import BookForm, RegisterForm, CommentForm
 
 # ==== Home Page (All Books) ====
 def home_view(request):
@@ -17,10 +17,30 @@ def my_collection_view(request):
     books = Book.objects.filter(user=request.user)
     return render(request, 'my_collection.html', {'books': books})
 
-# ==== Book Detail ====
+# ==== Book Detail (with Comments) ====
 def book_detail_view(request, pk):
     book = get_object_or_404(Book, pk=pk)
-    return render(request, 'book_detail.html', {'book': book})
+    comments = book.comments.all().order_by('-created_at')
+
+    if request.method == 'POST':
+        if request.user.is_authenticated:
+            form = CommentForm(request.POST)
+            if form.is_valid():
+                comment = form.save(commit=False)
+                comment.book = book
+                comment.user = request.user
+                comment.save()
+                return redirect('book_detail', pk=book.pk)
+        else:
+            return redirect('login')
+    else:
+        form = CommentForm()
+
+    return render(request, 'book_detail.html', {
+        'book': book,
+        'comments': comments,
+        'form': form
+    })
 
 # ==== Add New Book ====
 @login_required
