@@ -1,4 +1,3 @@
-/* Container for the form */
 .form-container {
     width: 90%;
     max-width: 500px;
@@ -11,7 +10,6 @@
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Top gradient border */
 .form-container::after {
     content: '';
     position: absolute;
@@ -30,7 +28,6 @@
     animation: gradient-shift 2s ease infinite;
 }
 
-/* Form Title */
 .form-container h2 {
     text-align: center;
     font-size: 2rem;
@@ -43,7 +40,6 @@
     background-clip: text;
 }
 
-/* Form Fields */
 form input[type="text"],
 form input[type="number"],
 form input[type="file"],
@@ -68,7 +64,6 @@ form select:focus {
     box-shadow: 0 0 10px rgba(102,126,234,0.3);
 }
 
-/* Submit Button */
 form button {
     width: 100%;
     padding: 12px;
@@ -107,7 +102,6 @@ form button:hover {
     animation: gradient-shift 2s ease infinite;
 }
 
-/* Responsive */
 @media (max-width: 600px) {
     .form-container {
         padding: 20px;

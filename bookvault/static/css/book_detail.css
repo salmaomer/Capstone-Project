@@ -1,4 +1,3 @@
-/* Container for the whole book detail */
 .book-detail-container {
     max-width: 1200px;
     margin: 40px auto;
@@ -10,14 +9,12 @@
     color: #2c3e50;
 }
 
-/* Main book section: image + details */
 .book-main {
     display: flex;
     gap: 30px;
     flex-wrap: wrap;
 }
 
-/* Left: Book Image */
 .book-left {
     flex: 1 1 300px;
     max-width: 350px;
@@ -35,7 +32,6 @@
     box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
 }
 
-/* Right: Book Details */
 .book-right {
     flex: 2 1 500px;
     display: flex;
@@ -43,21 +39,18 @@
     gap: 15px;
 }
 
-/* Title */
 .book-right h2 {
     font-size: 2rem;
     color: #667eea;
     margin-bottom: 10px;
 }
 
-/* Details text */
 .book-right p {
     font-size: 1rem;
     line-height: 1.5;
     color: #4a4a4a;
 }
 
-/* Actions buttons */
 .actions {
     display: flex;
     gap: 15px;
@@ -103,7 +96,6 @@
     animation: gradient-shift 2s ease infinite;
 }
 
-/* Comments Section */
 .comments-container {
     display: flex;
     flex-direction: column;
@@ -116,7 +108,6 @@
     margin-bottom: 15px;
 }
 
-/* Responsive adjustments */
 @media (max-width: 900px) {
     .book-main {
         flex-direction: column;

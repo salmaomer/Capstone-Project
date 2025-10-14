@@ -1,4 +1,3 @@
-/* 🌿 Container for Comments and Form */
 #comments-section {
     display: flex;
     flex-wrap: wrap;
@@ -9,20 +8,17 @@
     font-family: "Poppins", sans-serif;
 }
 
-/* 🗨️ Comments List - Left */
 .comments-list {
     flex: 1;
     min-width: 300px;
 }
 
-/* Comments Title */
 .comments-list .comments-title {
     font-size: 1.6rem;
     color: #667eea;
     margin-bottom: 15px;
 }
 
-/* Single Comment Box */
 .comment-box {
     background-color: #fff;
     border-radius: 15px;
@@ -52,7 +48,6 @@
     color: #777;
 }
 
-/* Edit / Delete Links */
 .comment-actions a {
     color: #fff;
     font-weight: 500;
@@ -70,27 +65,23 @@
     box-shadow: 0 6px 20px rgba(102,126,234,0.3);
 }
 
-/* 📝 Add Comment Form - Right */
 .comment-form-container {
     flex: 1;
     min-width: 300px;
 }
 
-/* Add Comment Title */
 .comment-form-container .add-comment-title {
     font-size: 1.4rem;
     color: #667eea;
     margin-bottom: 15px;
 }
 
-/* Comment Form */
 .comment-form {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-/* Textarea */
 .comment-form textarea {
     width: 100%;
     padding: 12px 15px;
@@ -99,7 +90,6 @@
     resize: vertical;
 }
 
-/* Submit Button */
 .comment-button {
     padding: 10px 25px;
     border-radius: 25px;
@@ -116,7 +106,6 @@
     box-shadow: 0 6px 20px rgba(102,126,234,0.3);
 }
 
-/* Login Message */
 .login-message {
     color: #333;
     font-weight: 500;
@@ -128,7 +117,6 @@
     text-decoration: underline;
 }
 
-/* Responsive */
 @media (max-width: 900px) {
     #comments-section {
         flex-direction: column;

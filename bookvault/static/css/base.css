@@ -1,4 +1,3 @@
-/* Reset default styles */
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +5,6 @@
     font-family: "Poppins", "Segoe UI", sans-serif;
 }
 
-/* Keyframe Animations */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -39,7 +37,6 @@
     }
 }
 
-/* Base styling */
 body {
     font-family: "Poppins", "Segoe UI", sans-serif !important;
     background: linear-gradient(-45deg, #f5f7fa, #e8ecf1, #dfe6ef, #f0f3f8);
@@ -51,7 +48,6 @@ body {
     flex-direction: column;
 }
 
-/* Header */
 header {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
     background-size: 200% 200%;
@@ -81,10 +77,14 @@ header::before {
 }
 
 header h2 {
-    font-size: 2rem; font-weight: 600; letter-spacing: 0.5px; position: relative; z-index: 1; animation: fadeInUp 0.8s ease;
+    font-size: 2rem; 
+    font-weight: 600; 
+    letter-spacing: 0.5px; 
+    position: relative; 
+    z-index: 1; 
+    animation: fadeInUp 0.8s ease;
 }
 
-/* Navbar */
 nav {
     display: flex;
     gap: 15px;
@@ -132,7 +132,6 @@ nav a:hover {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* Main content area */
 main {
     flex: 1;
     width: 90%;
@@ -147,7 +146,6 @@ main {
     animation: fadeInUp 1.2s ease;
 }
 
-/* Footer */
 footer {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
     background-size: 200% 200%;
@@ -241,7 +239,6 @@ footer::before {
     animation: fadeInUp 1.6s ease;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
     header {
         padding: 15px 25px;
