@@ -8,37 +8,19 @@
 {% endblock %}
 
 {% block content %}
+<div class="container">
+    <h1>Featured Books</h1>
+    <p class="subtitle">Discover your next great read</p>
 
-<main>
-    <h2>All Books</h2>
     <div class="book-grid">
         {% for book in books %}
-            <div class="book-card">
-                {% if book.cover_image %}
-                    <img src="{{ book.cover_image.url }}" alt="{{ book.title }}">
-                {% else %}
-                    <div class="no-image">No Image</div>
-                {% endif %}
-                <h3>{{ book.title }}</h3>
-                <p>by {{ book.author }}</p>
-                <a href="{% url 'book_detail' book.pk %}">View Details</a>
-            </div>
-        {% empty %}
-            <p>No books available yet.</p>
+        <div class="book-card">
+            <img src="{{ book.cover_image.url }}" alt="{{ book.title }}">
+            <h3>{{ book.title }}</h3>
+            <p>{{ book.description }}</p>
+            <a href="{% url 'book_detail' book.pk %}" target="_blank">Read More</a>
+        </div>
         {% endfor %}
     </div>
-
-    <!-- دمج الصفحات الفرعية -->
-    {% if view_type == 'my_collection' %}
-        {% include 'my_collection.html' %}
-    {% elif view_type == 'book_detail' %}
-        {% include 'book_detail.html' %}
-    {% elif view_type == 'book_form' %}
-        {% include 'book_form.html' %}
-    {% elif view_type == 'book_confirm_delete' %}
-        {% include 'book_confirm_delete.html' %}
-    {% endif %}
-
-</main>
-
+</div>
 {% endblock %}

@@ -3,18 +3,44 @@
     width: 90%;
     max-width: 500px;
     margin: 40px auto;
-    background-color: #F0F0F0;
-    border-radius: 15px;
     padding: 30px;
-    box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.8s ease backwards;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Top gradient border */
+.form-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    background-size: 200% 100%;
+    transform: scaleX(0);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-container:hover::after {
+    transform: scaleX(1);
+    animation: gradient-shift 2s ease infinite;
 }
 
 /* Form Title */
 .form-container h2 {
     text-align: center;
     font-size: 2rem;
-    color: #73C174;
+    font-weight: 600;
+    color: #2c3e50;
     margin-bottom: 25px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 /* Form Fields */
@@ -24,39 +50,61 @@ form input[type="file"],
 form textarea,
 form select {
     width: 100%;
-    padding: 10px 12px;
+    padding: 12px 15px;
     margin-bottom: 15px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
+    border-radius: 15px;
+    border: 1px solid rgba(102,126,234,0.2);
     font-size: 1rem;
     transition: all 0.3s ease;
+    background-color: #dfe6ef;
+    box-shadow: 0 4px 15px rgba(102,126,234,0.05);
 }
 
 form input:focus,
 form textarea:focus,
 form select:focus {
-    border-color: #73C174;
+    border-color: #667eea;
     outline: none;
-    box-shadow: 0 0 8px rgba(115,193,116,0.4);
+    box-shadow: 0 0 10px rgba(102,126,234,0.3);
 }
 
 /* Submit Button */
 form button {
     width: 100%;
     padding: 12px;
-    background-color: #73C174;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #fff;
     font-weight: 600;
     border: none;
-    border-radius: 10px;
+    border-radius: 25px;
     font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102,126,234,0.3);
+    transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+    position: relative;
+    overflow: hidden;
+}
+
+form button::before {
+    content:'';
+    position:absolute;
+    top:50%; left:50%;
+    width:0; height:0;
+    border-radius:50%;
+    background: rgba(255,255,255,0.3);
+    transform:translate(-50%,-50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+form button:hover::before {
+    width:300px;
+    height:300px;
 }
 
 form button:hover {
-    background-color: #B8E986;
-    color: #333;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow:0 8px 25px rgba(102,126,234,0.5);
+    animation: gradient-shift 2s ease infinite;
 }
 
 /* Responsive */

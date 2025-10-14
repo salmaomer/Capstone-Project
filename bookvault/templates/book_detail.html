@@ -5,60 +5,80 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/book_detail.css' %}">
+<link rel="stylesheet" href="{% static 'css/comment_form.css' %}">
 {% endblock %}
 
 {% block content %}
-<div class="book-detail">
-    {% if book.cover_image %}
-        <img src="{{ book.cover_image.url }}" alt="{{ book.title }}">
-    {% else %}
-        <div class="no-image">No Image</div>
-    {% endif %}
+<div class="book-detail-container">
 
-    <h2>{{ book.title }}</h2>
-    <p><strong>Author:</strong> {{ book.author }}</p>
-    <p><strong>Price:</strong> ${{ book.price }}</p>
-    <p><strong>Description:</strong></p>
-    <p>{{ book.description|linebreaks }}</p>
-
-    {% if user == book.user %}
-        <div class="actions">
-            <a href="{% url 'book_edit' book.pk %}">Edit</a>
-            <a href="{% url 'book_delete' book.pk %}">Delete</a>
+    <div class="book-main">
+        <div class="book-left">
+            {% if book.cover_image %}
+                <img src="{{ book.cover_image.url }}" alt="{{ book.title }}">
+            {% else %}
+                <div class="no-image">No Image</div>
+            {% endif %}
         </div>
-    {% endif %}
+
+        <div class="book-right">
+            <h2>{{ book.title }}</h2>
+            <p><strong>Author:</strong> {{ book.author }}</p>
+            <p><strong>Price:</strong> ${{ book.price }}</p>
+            <p><strong>Description:</strong></p>
+            <p>{{ book.description|linebreaks }}</p>
+
+            {% if user == book.user %}
+            <div class="actions">
+                <a href="{% url 'book_edit' book.pk %}">Edit</a>
+                <a href="{% url 'book_delete' book.pk %}">Delete</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <hr>
+
+    <div id="comments-section">
+      <!-- Left: Comments List -->
+      <div class="comments-list">
+          <h3 class="comments-title">Comments 💬</h3>
+
+          {% for comment in comments %}
+          <div class="comment-box">
+              <strong class="comment-author">{{ comment.user.username }}</strong> said:
+              <p class="comment-content">{{ comment.content }}</p>
+              <small class="comment-date">{{ comment.created_at|date:"Y-m-d H:i" }}</small>
+
+              {% if comment.user == user %}
+              <div class="comment-actions">
+                  <a href="{% url 'comment_edit' comment.pk %}" class="comment-edit">Edit</a>
+                  <a href="{% url 'comment_delete' comment.pk %}" class="comment-delete">Delete</a>
+              </div>
+              {% endif %}
+          </div>
+          {% empty %}
+          <p class="no-comments">No comments yet.</p>
+          {% endfor %}
+      </div>
+
+      <!-- Right: Add Comment Form -->
+      {% if user.is_authenticated %}
+      <div id="add-comment-section" class="comment-form-container">
+          <h4 class="add-comment-title">Add a Comment:</h4>
+          <form id="form-comment" class="comment-form" method="POST">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <button type="submit" id="submit-comment" class="comment-button">Post Comment</button>
+          </form>
+      </div>
+      {% else %}
+      <p class="login-message">
+          Please <a href="{% url 'login' %}" class="login-link">log in</a> to post a comment.
+      </p>
+      {% endif %}
+    </div>
+
 </div>
 
-<hr>
 
-<h3>Comments 💬</h3>
-{% for comment in comments %}
-  <div class="comment">
-    <strong>{{ comment.user.username }}</strong> said:
-    <p>{{ comment.content }}</p>
-    <small>{{ comment.created_at|date:"Y-m-d H:i" }}</small>
-
-    {% if comment.user == user %}
-      <div class="comment-actions">
-        <a href="{% url 'comment_edit' comment.pk %}">Edit</a> |
-        <a href="{% url 'comment_delete' comment.pk %}">Delete</a>
-      </div>
-    {% endif %}
-  </div>
-{% empty %}
-  <p>No comments yet.</p>
-{% endfor %}
-
-<hr>
-
-{% if user.is_authenticated %}
-  <h4>Add a Comment:</h4>
-  <form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Post Comment</button>
-  </form>
-{% else %}
-  <p>Please <a href="{% url 'login' %}">log in</a> to post a comment.</p>
-{% endif %}
 {% endblock %}

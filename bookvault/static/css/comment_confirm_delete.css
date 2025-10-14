@@ -1,0 +1,68 @@
+.comment-confirm {
+    width: 90%;
+    max-width: 500px;
+    margin: 50px auto;
+    background-color: #F0F0F0;
+    border-radius: 15px;
+    padding: 25px 30px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.comment-confirm h2 {
+    color: #73C174;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.comment-confirm p {
+    font-size: 1rem;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.comment-confirm form {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.comment-confirm form button,
+.comment-confirm form a {
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.comment-confirm form button {
+    background-color: #DCC6A0;
+    border: none;
+    color: #333;
+}
+
+.comment-confirm form button:hover {
+    background-color: #B8E986;
+}
+
+.comment-confirm form a {
+    background-color: #FFFFFF;
+    border: 2px solid #DCC6A0;
+    color: #333;
+}
+
+.comment-confirm form a:hover {
+    background-color: #DCC6A0;
+    color: #333;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .comment-confirm form {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

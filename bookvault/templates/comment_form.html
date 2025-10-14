@@ -1,7 +1,20 @@
-<h2>{{ title }}</h2>
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save</button>
-</form>
-<a href="{% url 'book_detail' comment.book.pk %}">Cancel</a>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{% if form.instance.pk %}Edit Comment{% else %}Add Comment{% endif %} - BookVault{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/comment_form.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="comment-form-container">
+    <h2>{{ title }}</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    <a href="{% url 'book_detail' comment.book.pk %}">Cancel</a>
+</div>
+{% endblock %}

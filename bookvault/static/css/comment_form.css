@@ -1,0 +1,141 @@
+/* 🌿 Container for Comments and Form */
+#comments-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto;
+    font-family: "Poppins", sans-serif;
+}
+
+/* 🗨️ Comments List - Left */
+.comments-list {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Comments Title */
+.comments-list .comments-title {
+    font-size: 1.6rem;
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+/* Single Comment Box */
+.comment-box {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 20px rgba(102,126,234,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.comment-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(102,126,234,0.2);
+}
+
+.comment-author {
+    font-weight: 600;
+    color: #764ba2;
+}
+
+.comment-content {
+    margin: 8px 0;
+    color: #333;
+}
+
+.comment-date {
+    font-size: 0.85rem;
+    color: #777;
+}
+
+/* Edit / Delete Links */
+.comment-actions a {
+    color: #fff;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 6px 14px;
+    border-radius: 25px;
+    background: #6876df;
+    margin-right: 5px;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.comment-actions a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102,126,234,0.3);
+}
+
+/* 📝 Add Comment Form - Right */
+.comment-form-container {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Add Comment Title */
+.comment-form-container .add-comment-title {
+    font-size: 1.4rem;
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+/* Comment Form */
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Textarea */
+.comment-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    resize: vertical;
+}
+
+/* Submit Button */
+.comment-button {
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.comment-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102,126,234,0.3);
+}
+
+/* Login Message */
+.login-message {
+    color: #333;
+    font-weight: 500;
+}
+
+.login-link {
+    color: #667eea;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    #comments-section {
+        flex-direction: column;
+    }
+
+    .comments-list,
+    .comment-form-container {
+        min-width: 100%;
+    }
+}
