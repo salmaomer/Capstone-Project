@@ -113,18 +113,23 @@ def logout_view(request):
 @login_required
 def comment_update_view(request, pk):
     comment = get_object_or_404(Comment, pk=pk)
+
     if comment.user != request.user:
         return HttpResponseForbidden("You are not allowed to edit this comment.")
     
     if request.method == 'POST':
         form = CommentForm(request.POST, instance=comment)
         if form.is_valid():
-            form.save()
-            return redirect('book_detail', pk=comment.book.pk)
+            comment = form.save(commit=False)
+            comment.save()
+            if comment.book:
+                return redirect('book_detail', pk=comment.book.pk)
+            else:
+                return redirect('home')
     else:
         form = CommentForm(instance=comment)
     
-    return render(request, 'bookvault/comment_form.html', {'form': form, 'title': 'Edit Comment'})
+    return render(request, 'comment_form.html', {'form': form, 'title': 'Edit Comment'})
 
 # ==== Delete Comment ====
 @login_required
@@ -138,4 +143,4 @@ def comment_delete_view(request, pk):
         comment.delete()
         return redirect('book_detail', pk=book_pk)
     
-    return render(request, 'bookvault/comment_confirm_delete.html', {'comment': comment})
+    return render(request, 'comment_confirm_delete.html', {'comment': comment})

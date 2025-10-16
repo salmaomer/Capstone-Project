@@ -127,3 +127,32 @@
         min-width: 100%;
     }
 }
+
+button, .comment-actions a, .comment-button {
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+button:hover, .comment-actions a:hover, .comment-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102,126,234,0.3);
+}
+
+.comment-actions a {
+    padding: 6px 14px;
+    font-size: 0.9rem;
+    margin-right: 5px;
+}
+
+.comment-form-container button {
+    width: fit-content;
+    margin-top: 10px;
+}

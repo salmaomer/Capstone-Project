@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}{% if form.instance.pk %}Edit Book{% else %}Add Book{% endif %} - BookVault{% endblock %}
+{% block title %}{% if form.instance.pk %}Edit Comment{% else %}Add Comment{% endif %} - BookVault{% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/comment_confirm_delete.css' %}">
+<link rel="stylesheet" href="{% static 'css/ccomment_confirm_delete.css' %}">
 {% endblock %}
 
 <div class="comment-confirm">
